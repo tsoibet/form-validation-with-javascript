@@ -1,0 +1,75 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.formDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    border: 0.1rem solid darkgray;
+    background-color: rgb(245, 245, 245);
+    padding: 1rem 2rem;
+    width: max-content;
+    margin: 1rem auto;
+}
+
+.formRow {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 2fr;
+    grid-template-areas: 
+        "label errMsg"
+        "label input";
+    gap: 0.2rem;
+}
+
+.formRow:last-child {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+.errMsg {
+    grid-area: errMsg;
+    align-self: end;
+    color: red;
+    font-size: 0.7rem;
+}
+
+label {
+    grid-area: label;
+    align-self: end;
+    justify-self: end;
+    margin-right: 0.5rem;
+}
+
+.required::after {
+    content: "*";
+    color: red;
+}
+
+input, select {
+    grid-area: input;
+    height: 1.5rem;
+    border-radius: 0;
+    border: none;
+    padding: 0 0.5rem;
+}
+
+input:focus, select:focus {
+    outline: none;
+}
+
+input:invalid, select:invalid {
+    border: 0.1rem dotted red;
+}
+
+input[type="submit"] {
+    height: 100%;
+    padding: 0.5rem 1rem;
+    background-color: lightgray;
+    margin: 0.5rem;
+}
